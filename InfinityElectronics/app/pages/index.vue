@@ -4,16 +4,16 @@
       <HeroSlider :hero-items="heroImages" />
     </section>
     <section
+      v-if="products"
       class="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-1"
     >
-      <ProductCard v-for="i in product" :key="i.id" :product="i" />
+      <ProductCard v-for="i in products" :key="i.id" :product="i" />
     </section>
+    <div v-else-if="isLoading" class="text-center text-alice-red">Loading</div>
   </div>
 </template>
 
 <script setup lang="ts">
-import HeroSlider from "@/components/hero/HeroSlider.vue";
-
 //Stubbed hero images for the slider, can be replaced with dynamic content later:
 const heroImages = [
   {
@@ -22,13 +22,11 @@ const heroImages = [
     link: "/products",
   },
 ];
-const {
-  data: product,
-  isLoading,
-  refresh,
-  error,
-} = await useFetchProducts("/api/products?limit=5");
+const { data, isLoading, refresh, error } = await useFetchProducts(
+  "/api/products?limit=5",
+);
 
+const products = computed(() => (data.value as Product[]) ?? []);
 useHead({
   title: "Infinity Electronics - Home",
 });

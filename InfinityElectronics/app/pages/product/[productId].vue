@@ -48,16 +48,17 @@
 </template>
 
 <script setup lang="ts">
+import type { Product } from "@/types/Product.types";
+
 const cartStore = useCartStore();
 
 const route = useRoute();
 
-const {
-  data: product,
-  isLoading,
-  refresh,
-  error,
-} = await useFetchProducts(`/api/product/${route.params.productId}`);
+const { data, isLoading, refresh, error } = await useFetchProducts(
+  `/api/product/${route.params.productId}`,
+);
+
+const product = computed(() => (data.value as Product) ?? null);
 
 useHead({
   title: `Infinity Electronics - ${route.params.productId}`.toLocaleUpperCase(),

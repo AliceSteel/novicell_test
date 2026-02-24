@@ -46,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Product, Category } from "@/pages/product/Product.types";
+import type { Product, Category } from "@/types/Product.types";
 
 //Hardcoded categories , something for TODO:
 const categories: Category[] = [

@@ -1,3 +1,4 @@
+import type { Product } from '@/types/Product.types'
 
 export default defineEventHandler(async (event) => {
   const id = getRouterParam(event, 'productId')
@@ -7,9 +8,9 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    const product = await $fetch(`https://fakestoreapi.com/products/${id}`)
-   	console.log(`Fetched product from server route${id}:`, product)
+    const product = await $fetch<Product>(`https://fakestoreapi.com/products/${id}`)
     return product
+
   } catch (error) {
     throw createError({
       status: 500,
