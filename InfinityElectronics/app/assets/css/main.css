@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .container {
+    margin: 0 auto;
+    @apply px-3 sm:px-5;
+  }
+}
+@theme {
+  /* Font Weights */
+  --font-weight-normal: 300;
+  --font-weight-semibold: 500;
+
+  /* Custom Colors */
+  --color-khaki: #878145;
+  --color-baby-blue: #7fc4c1;
+  --color-neon-green: #96ff00;
+  --color-alice-orange: #d35525;
+  --color-alice-red: #cc3b14;
+  --color-alice-yellow: #e3d126;
+  --color-alice-green: #7f8703;
+  --color-alice-pink: #ffab91;
+}
