@@ -19,12 +19,5 @@ export default defineNuxtConfig({
     ]
   },
   css: ['~/assets/css/main.css'],
-  experimental: {
-    defaults: {
-      nuxtLink: {
-        activeClass: 'router-link-active text-blue-500 ',
-        exactActiveClass: 'router-link-exact-active',
-      },
-    },
-  },
+ 
 })
