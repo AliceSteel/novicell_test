@@ -22,7 +22,7 @@ const heroImages = [
     link: "/products",
   },
 ];
-const { data, isLoading, refresh, error } = await useFetchProducts(
+const { data, isLoading, refresh, error } = useFetchProducts(
   "/api/products?limit=5",
 );
 
